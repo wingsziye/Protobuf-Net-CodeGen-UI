@@ -11,6 +11,9 @@ using ProtoBuf.Reflection;
 
 namespace Protobuf_Net_CodeGen_UI.CodeGen
 {
+    /// <summary>
+    /// check this code at https://github.com/mgravell/protobuf-net/blob/master/src/protogen/Program.cs
+    /// </summary>
     public class ProtoGenerator
     {
         public static bool DoGen(Action<string> callback=null,params string[] args)

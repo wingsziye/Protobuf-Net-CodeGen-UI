@@ -44,9 +44,6 @@
     <Reference Include="protobuf-net.Reflection">
       <HintPath>..\ProtoGen\protobuf-net.Reflection.dll</HintPath>
     </Reference>
-    <Reference Include="protogen">
-      <HintPath>..\ProtoGen\protogen.exe</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
