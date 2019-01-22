@@ -3,5 +3,5 @@ A GUI for Generate Protobuf-Net style of CSharp code
 
 ## Dependencies
 
-* [Unity Container](https://github.com/unitycontainer/unity)
-* [Prism](https://github.com/PrismLibrary/Prism)
+* [Protobuf-Net](https://github.com/mgravell/protobuf-net)
+* [Google Protobuffers](https://github.com/protocolbuffers/protobuf)
