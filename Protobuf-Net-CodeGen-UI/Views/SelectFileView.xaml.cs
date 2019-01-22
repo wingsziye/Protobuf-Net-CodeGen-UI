@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Protobuf_Net_CodeGen_UI
+namespace Protobuf_Net_CodeGen_UI.Views
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// SelectFileView.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SelectFileView : UserControl
     {
-        public MainWindow()
+        public SelectFileView()
         {
             InitializeComponent();
         }

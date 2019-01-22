@@ -1,0 +1,46 @@
+﻿<Window x:Class="Protobuf_Net_CodeGen_UI.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Protobuf_Net_CodeGen_UI"
+        xmlns:ViewModel="clr-namespace:Protobuf_Net_CodeGen_UI.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:views="clr-namespace:Protobuf_Net_CodeGen_UI.Views"
+        mc:Ignorable="d"
+        Title="PROTOBUF-NET CODE GENERATOR" Height="450" Width="800">
+    <Window.DataContext>
+        <!--<ObjectDataProvider ObjectType="{x:Type ViewModel:MainWindowViewModel}"/>-->
+        <ViewModel:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <UniformGrid DockPanel.Dock="Top"
+                         Rows="1">
+                <Button x:Name="btn_loadFile"
+                        Command="{Binding LoadProFileCmd}"
+                        Content="读取文件"/>
+                <Button x:Name="btn_loadDir"
+                        Command="{Binding LoadProDirCmd}"
+                        Content="读取文件夹"/>
+            </UniformGrid>
+            
+        </DockPanel>
+        <DockPanel x:Name="Zone">
+            <Button x:Name="btn_excuteTranser" 
+                    DockPanel.Dock="Bottom"
+                    Height="50"
+                    Command="{Binding ExcuteTransferCmd}"
+                    Content="开始转换"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <views:SelectFileView Grid.Row="0"/>
+                <views:ProtoGenView Grid.Row="1"/>
+            </Grid>
+        </DockPanel>
+    </DockPanel>
+</Window>

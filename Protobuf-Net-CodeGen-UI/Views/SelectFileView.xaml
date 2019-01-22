@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="Protobuf_Net_CodeGen_UI.Views.SelectFileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Protobuf_Net_CodeGen_UI.Views"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        
+        <DataGrid x:Name="dataGrid" 
+                      AutoGenerateColumns="False" 
+                      GridLinesVisibility="None" 
+                      CanUserAddRows="False" 
+                      Focusable="False"   
+                      Margin="0" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      ItemsSource="{Binding ProtoFiles}" 
+                      SelectedItem="{Binding SelProtoModel}"
+                      Width="Auto" 
+                      EnableColumnVirtualization="False">
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Center">
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <CheckBox IsChecked="{Binding DataContext.IsSelectAll,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=1 }}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding DataContext.SelectAllCommand ,RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=1 }}" ></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </CheckBox>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Margin="3" IsChecked="{Binding IsSelected,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction Command="{Binding DataContext.SelectCommand ,RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=1 }}" 
+                                                                   CommandParameter="{Binding ProtoFile.ID}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <DataGridTextColumn Binding="{Binding ProtoFile.FilePath}" 
+                                    Header="Proto文件路径" 
+                                    IsReadOnly="True" 
+                                    Width="2*"/>
+                <DataGridTextColumn Binding="{Binding ProtoFile.ErrMsg}" 
+                                    Header="信息" 
+                                    IsReadOnly="True" 
+                                    Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

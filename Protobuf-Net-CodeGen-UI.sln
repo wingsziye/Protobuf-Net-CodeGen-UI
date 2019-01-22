@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protobuf-Net-CodeGen-UI", "Protobuf-Net-CodeGen-UI\Protobuf-Net-CodeGen-UI.csproj", "{64007E9E-D6E9-46D6-9512-982E8325B111}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProtoGen", "ProtoGen", "{7E59A29D-147A-458B-8862-70F6EE17688D}"
+	ProjectSection(SolutionItems) = preProject
+		ProtoGen\protobuf-net.dll = ProtoGen\protobuf-net.dll
+		ProtoGen\protobuf-net.Reflection.dll = ProtoGen\protobuf-net.Reflection.dll
+		ProtoGen\protobuf-net.Reflection.xml = ProtoGen\protobuf-net.Reflection.xml
+		ProtoGen\protobuf-net.xml = ProtoGen\protobuf-net.xml
+		ProtoGen\protogen.exe = ProtoGen\protogen.exe
+		ProtoGen\protogen.xml = ProtoGen\protogen.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
